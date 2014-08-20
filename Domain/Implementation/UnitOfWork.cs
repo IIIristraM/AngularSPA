@@ -35,14 +35,14 @@ namespace Domain.Implementation
             _transaction = CreateWithContext<ITransaction>();      
         }
 
-        /*~UnitOfWork()
+        ~UnitOfWork()
         {
             Trace.WriteLine("Unit of work finalizer");
             if (!_disposed)
             {
                 throw new InvalidOperationException("Object must be disposed");
             }
-        }*/
+        }
 
         public ITransaction GetTransaction()
         {
