@@ -36,7 +36,10 @@ namespace Domain.Implementation
 
         ~UnitOfWork()
         {
-            throw new InvalidOperationException("Object must be disposed");
+            if (!_disposed)
+            {
+                throw new InvalidOperationException("Object must be disposed");
+            }
         }
 
         public ITransaction GetTransaction()
