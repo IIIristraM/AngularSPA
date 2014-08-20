@@ -37,7 +37,7 @@ namespace App.AudioSearcher
                 "~/scripts/app/controllers.js",
                 "~/scripts/app/app.js"));
 
-            //BundleTable.EnableOptimizations = true;
+            BundleTable.EnableOptimizations = true;
         }
     }
 }
