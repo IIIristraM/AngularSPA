@@ -19,15 +19,15 @@ namespace App.AudioSearcher.Api
 {
     [Authorize]
     [HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]
-    public class AccountController : ApiController
+    public class AccountController : TransactionApiController
     {
         private readonly ITestService _testService;
 
-        /*public AccountController(IUnitOfWork unitOfWork, IUserManagerFactory userManagerFactory, ITestService testService)
+        public AccountController(IUnitOfWork unitOfWork, IUserManagerFactory userManagerFactory, ITestService testService)
             : base(unitOfWork, userManagerFactory)
         {
             _testService = testService;
-        }*/
+        }
 
         [HttpGet]
         public ExternalLoginData UserInfo()
