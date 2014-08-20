@@ -4,7 +4,7 @@
 // In this case it is a simple value service.
 angular
     .module('app.services', [])
-    .factory('$authHelper', function ($timeout) {
+    .factory('$authHelper', ["$timeout", function ($timeout) {
         var service = {};
 
         var accessTokenStorageKey = "accessToken";
@@ -43,8 +43,8 @@ angular
         };
 
         return service;
-    })
-    .factory('$account', function ($http, $authHelper) {
+    }])
+    .factory('$account', ["$http", "$authHelper", function ($http, $authHelper) {
         var service = {};
 
         service.getUserInfo = function () {
@@ -59,4 +59,4 @@ angular
         };
 
         return service;
-    });
+    }]);
