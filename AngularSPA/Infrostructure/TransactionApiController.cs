@@ -22,6 +22,8 @@ namespace App.AudioSearcher
         private ITransaction _transaction;
         private UserManager<UserProfile> _userManager;
 
+        public TransactionApiController() { }
+
         public TransactionApiController(IUnitOfWork unitOfWork, IUserManagerFactory userManagerFactory)
         {
             if (!unitOfWork.Equals(userManagerFactory))
