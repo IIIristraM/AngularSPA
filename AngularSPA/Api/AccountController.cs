@@ -23,7 +23,7 @@ namespace App.AudioSearcher.Api
     {
         private readonly ITestService _testService;
 
-        public AccountController(IUnitOfWork unitOfWork, IUserManagerFactory userManagerFactory, ITestService testService)
+        public AccountController(/*IUnitOfWork unitOfWork, IUserManagerFactory userManagerFactory,*/ ITestService testService)
             //: base(unitOfWork, userManagerFactory)
         {
             _testService = testService;
