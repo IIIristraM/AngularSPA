@@ -23,11 +23,11 @@ namespace App.AudioSearcher.Api
     {
         private readonly ITestService _testService;
 
-        /*public AccountController(IUnitOfWork unitOfWork, IUserManagerFactory userManagerFactory, ITestService testService)
-            : base(unitOfWork, userManagerFactory)
+        public AccountController(IUnitOfWork unitOfWork, IUserManagerFactory userManagerFactory, ITestService testService)
+            //: base(unitOfWork, userManagerFactory)
         {
             _testService = testService;
-        }*/
+        }
 
         [HttpGet]
         public ExternalLoginData UserInfo()
