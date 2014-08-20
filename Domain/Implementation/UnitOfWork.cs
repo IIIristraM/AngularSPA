@@ -64,6 +64,7 @@ namespace Domain.Implementation
 
         public void Dispose()
         {
+            GC.SuppressFinalize(this);
             if (!_disposed)
             {
                 // наверняка завершем трансакцию
@@ -72,7 +73,6 @@ namespace Domain.Implementation
             }
 
             _disposed = true;
-            GC.SuppressFinalize(this);
         }
 
         private DbContext Context
