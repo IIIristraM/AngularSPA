@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
-using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
 using System.Threading;
@@ -57,8 +56,6 @@ namespace App.AudioSearcher
 
         public async override Task<HttpResponseMessage> ExecuteAsync(HttpControllerContext controllerContext, CancellationToken cancellationToken)
         {
-            var controllerName = controllerContext.ControllerDescriptor.ControllerName;
-            Trace.WriteLine(String.Format("Entering controller {0}", controllerName));
             using (_transaction = UnitOfWork.GetTransaction())
             {
                 var isAnyExecutionErrors = false;
@@ -66,10 +63,8 @@ namespace App.AudioSearcher
                 {                    
                     return await base.ExecuteAsync(controllerContext, cancellationToken);
                 }
-                catch (Exception e)
+                catch
                 {
-                    Trace.WriteLine(String.Format("Error in controller {0}", controllerName));
-                    Trace.WriteLine(e.Message + " "  + e.StackTrace);
                     _transaction.Rollback();
                     isAnyExecutionErrors = true;
                     throw;
@@ -80,10 +75,8 @@ namespace App.AudioSearcher
                     {
                         _transaction.Commit();
                     }
-
-                    Trace.WriteLine(String.Format("Exit controller {0}", controllerName));
                 }               
-            }            
+            }
         }
     }
 }
