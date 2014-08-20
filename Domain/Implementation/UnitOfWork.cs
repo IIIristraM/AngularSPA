@@ -37,7 +37,6 @@ namespace Domain.Implementation
 
         ~UnitOfWork()
         {
-            Trace.WriteLine("Unit of work finalizer");
             if (!_disposed)
             {
                 throw new InvalidOperationException("Object must be disposed");
@@ -66,7 +65,7 @@ namespace Domain.Implementation
 
         public void Dispose()
         {
-            Trace.WriteLine("Dispose unit of work");
+            Trace.WriteLine(String.Format("Dispose unit of work"));
             if (!_disposed)
             {
                 // наверняка завершем трансакцию
