@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -64,6 +65,7 @@ namespace Domain.Implementation
 
         public void Dispose()
         {
+            Trace.WriteLine(String.Format("Dispose unit of work"));
             if (!_disposed)
             {
                 // наверняка завершем трансакцию
