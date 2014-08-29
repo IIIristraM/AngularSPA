@@ -109,7 +109,7 @@ namespace App.AudioSearcher.Api
         [HttpGet]
         public IHttpActionResult Logout()
         {
-            // TODO implemet some logic
+            Authentication.SignOut(DefaultAuthenticationTypes.ExternalCookie);
             return Ok();
         }
 

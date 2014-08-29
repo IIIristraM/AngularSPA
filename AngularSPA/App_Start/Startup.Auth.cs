@@ -1,6 +1,7 @@
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
+using Microsoft.Owin.Security.Google;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
 using System;
@@ -57,7 +58,10 @@ namespace App.AudioSearcher
             ////   appId: "",
             ////   appSecret: "");
 
-            app.UseGoogleAuthentication();
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions { 
+                ClientId = "219854735390-99mu0vd6kloc2e93e6lqjqvti0e2rmp6.apps.googleusercontent.com",
+                ClientSecret = "nBKY3EcNSNVkiWoJZTOyG2Oh"
+            });
         }
     }
 }
